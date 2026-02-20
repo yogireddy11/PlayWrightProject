@@ -1,0 +1,24 @@
+<suite name="CrossBrowserSuite" parallel="classes" thread-count="1">
+
+
+
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="practice.BaseOne"/>
+        </classes>
+    </test>
+    <test name="WebkitTest">
+        <parameter name="browser" value="webkit"/>
+        <classes>
+            <class name="practice.BaseOne"/>
+        </classes>
+    </test>
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="practice.BaseOne"/>
+        </classes>
+    </test>
+
+</suite>
