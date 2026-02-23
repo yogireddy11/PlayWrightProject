@@ -15,7 +15,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class AutomateSpider extends BaseOne {
 
-    @Test(priority = 1, enabled = false)
+    @Test(priority = 1)
     public void registerPage() {
         //SignUp page
         page.locator("#name").fill("Ojas");
@@ -36,7 +36,7 @@ public class AutomateSpider extends BaseOne {
         System.out.println(status.textContent());
     }
 
-    @Test(priority = 2, enabled = false)
+    @Test(priority = 2)
     public void handleButtons() {
         page.locator("//section[text()='Button']").click();
         page.locator("#btn").click();
@@ -79,7 +79,7 @@ public class AutomateSpider extends BaseOne {
         }
     }
 
-    @Test(priority = 3, enabled = false)
+    @Test(priority = 3)
     public void handleLinks() {
 
         page.locator("//section[text() = 'Link']").click();
@@ -126,7 +126,7 @@ public class AutomateSpider extends BaseOne {
         }
     }
 
-    @Test(priority = 4, enabled = false)
+    @Test(priority = 4)
     public void handleCheckBox() throws InterruptedException {
         page.locator("//section[text()='Check Box']").click();
         System.out.println(page.url());
@@ -141,14 +141,13 @@ public class AutomateSpider extends BaseOne {
         for (Locator unBox : sm.all()) {
             if (unBox.isChecked()) {
                 unBox.uncheck();
-                ;
             }
             Thread.sleep(100);
 
         }
     }
 
-    @Test(priority = 5, enabled = false)
+    @Test(priority = 5)
     public void handleRadioButton() throws InterruptedException {
         page.locator("//section[text()='Radio Button']").click();
         page.locator("//h1[text()='Checkout Page']").waitFor();
@@ -164,7 +163,7 @@ public class AutomateSpider extends BaseOne {
         }
     }
 
-    @Test(priority = 6, enabled = false)
+    @Test(priority = 6)
     public void handleImages() {
         page.locator("//section[text()='Image']").click();
         Locator img = page.locator("//img[@title=\"Image tooltip\"]");
@@ -176,10 +175,6 @@ public class AutomateSpider extends BaseOne {
 
         page.locator("//a[text()='Clickable Image']").click();
         Locator clickableImg = page.locator("//a[@title=\"Mens Clothing\"]");
-//        int naturalWidth1 = (int) clickableImg.evaluate("img => img.naturalWidth");
-//        int naturalHeight1 = (int) clickableImg.evaluate("img => img.naturalHeight");
-//        System.out.println("Natural Width: " + naturalWidth1);
-//        System.out.println("Natural Height: " + naturalHeight1);
         clickableImg.click();
         Locator getItemName = page.locator("//h2[@class=\"font-bold text-xl pb-3\"]");
         System.out.println(getItemName.textContent());
@@ -204,7 +199,7 @@ public class AutomateSpider extends BaseOne {
 
     }
 
-    @Test(priority = 7, enabled = false)
+    @Test(priority = 7)
     public void handleDropdown() throws InterruptedException {
         page.locator("//section[text()='Dropdown']").click();
 
@@ -247,7 +242,7 @@ public class AutomateSpider extends BaseOne {
 
     }
 
-    @Test(priority = 8, enabled = false)
+    @Test(priority = 8)
     public void handleWebTables() throws InterruptedException {
 
         page.locator("text=Web Table").click();
@@ -270,8 +265,8 @@ public class AutomateSpider extends BaseOne {
         }
     }
 
-    @Test(priority = 9, enabled = false)
-    public void handleFormValidation() throws InterruptedException {
+    @Test(priority = 9)
+    public void handleFormValidation()  {
 
         page.locator("text=FormValidation").click();
         Locator subBtn = page.locator("//button[@class=\"bg-orange-600 rounded-md text-white py-2 px-4 mx-2 ms-0\"]");
@@ -290,11 +285,9 @@ public class AutomateSpider extends BaseOne {
         Pattern pattern = Pattern.compile(EMAIL_REGEX);
         Matcher matcher = pattern.matcher("peddi123@gmail.com");
         page.locator("#emailId").fill("peddi123@gmail.com");
-        matcher.matches();
         page.locator("#password").fill("Peddi@123");
         Pattern phnPattern = Pattern.compile(PHONE_REGEX);
         Matcher phnMatcher = phnPattern.matcher("9875463210");
-        phnMatcher.matches();
         page.locator("#mobile").fill("9875463210");
         Locator dropdown = page.locator("#city");
         dropdown.selectOption(new SelectOption().setValue("hyd"));
@@ -309,7 +302,7 @@ public class AutomateSpider extends BaseOne {
 
     }
 
-    @Test(priority = 9, enabled = true)
+    @Test(priority = 9)
     public void scrollThePage() throws InterruptedException {
         page.locator("(//section[text()=\"Scroll\"])[1]").click();
         page.locator("(//section[text()=\"Scroll\"])[2]").click();
